@@ -149,6 +149,7 @@ C:\Users\User\source\repos\FlightReservation\IdentityApi\obj\Debug\net9.0\Identi
 C:\Users\User\source\repos\FlightReservation\IdentityApi\obj\Debug\net9.0\IdentityApi.AssemblyInfo.cs
 C:\Users\User\source\repos\FlightReservation\IdentityApi\obj\Debug\net9.0\IdentityApi.csproj.CoreCompileInputs.cache
 C:\Users\User\source\repos\FlightReservation\IdentityApi\obj\Debug\net9.0\IdentityApi.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\User\source\repos\FlightReservation\IdentityApi\obj\Debug\net9.0\IdentityApi.sourcelink.json
 C:\Users\User\source\repos\FlightReservation\IdentityApi\obj\Debug\net9.0\scopedcss\bundle\IdentityApi.styles.css
 C:\Users\User\source\repos\FlightReservation\IdentityApi\obj\Debug\net9.0\staticwebassets.build.json
 C:\Users\User\source\repos\FlightReservation\IdentityApi\obj\Debug\net9.0\staticwebassets.development.json

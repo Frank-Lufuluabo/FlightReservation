@@ -5,7 +5,7 @@ using System.Security.Claims;
 
 namespace Shared.Authentication
 {
-    public class AuthorizeRequestMiddleware(ITokenService tokenService) : IMiddleware
+    public class AuthorizeRequestMiddleware(TokenService tokenService) : IMiddleware
     {
         public async Task InvokeAsync(HttpContext context, RequestDelegate next)
         {
@@ -15,7 +15,10 @@ namespace Shared.Authentication
                 var _token = token.Split(" ")[1];
                 bool isTokenValid = tokenService.ValidateToken(_token);
                 if (!isTokenValid)
+                {
                     Unauthorized(context);
+                    return;
+                }
 
                 var claims = tokenService.GetClaims(_token);
                 var identity = new ClaimsIdentity(claims, "Bearer");
@@ -36,11 +39,6 @@ namespace Shared.Authentication
                 Title = "You are not authorized",
                 Type = "Bearer authentication"
             });
-
-
-
-
-
         }
     }
 }
