@@ -71,8 +71,4 @@ namespace IdentityApi.Features.CreateAccount
             return true;
         }
     }
-    public class CreateAccountHandler
-    {
-
-    }
 }
