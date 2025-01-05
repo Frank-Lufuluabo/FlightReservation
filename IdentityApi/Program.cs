@@ -1,4 +1,3 @@
-using IdentityApi.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 

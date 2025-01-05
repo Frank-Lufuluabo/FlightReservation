@@ -1,0 +1,80 @@
+syntax = "proto3";
+
+option csharp_namespace = "IdentityApi.Protos";
+
+package Identity;
+
+import "google/api/annotations.proto";
+
+message CreateAccountRequestProto
+{
+	string fullname = 1;
+	string email = 2;
+	string password = 3;
+	string confirmPassword = 4;
+}
+
+message CreateAccountResponseProto
+{
+	bool success = 1;
+}
+
+message LoginAccountRequestProto
+{
+	string email = 1;
+	string password = 2;
+}
+
+message LoginAccountResponeProto
+{
+	string jwtToken = 1;
+	string refreshToken = 2;
+}
+
+message NewTokenRequestProto
+{
+	string refreshToken = 1;
+}
+
+message NewTokenResponseProto
+{
+	string newJwtToken = 1;
+	string newRefreshToken = 2;
+}
+
+service CreateAccountServiceProto{
+	rpc CreateAccountPro(CreateAccountRequestProto) returns (CreateAccountResponseProto){
+		option (google.api.http) = {
+			post: "/identity/create",
+			body: "*"
+		};
+	}
+}
+
+service LoginAccountServiceProto{
+	rpc LoginAccountProto(LoginAccountRequestProto) returns (LoginAccountResponseProto){
+		option (google.api.http) = {
+			post: "/identity/login",
+			body: "*"
+		};
+	}
+}
+
+service GetNewTokenServiceProto{
+	rpc GetNewTokenProto(GetNewTokenRequestProto) returns (NewTokenResponseProto){
+		option (google.api.http) = {
+			post: "/identity/refresh",
+			body: "*"
+		};
+	}
+}
+
+
+
+
+
+	
+
+
+
+
