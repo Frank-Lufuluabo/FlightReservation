@@ -75,5 +75,16 @@ namespace IdentityApi.Features.LoginAccount
             return new Response(jwtToken, userToken.Token!);
         }
     }
- }
+
+    internal class LoginAccountService(ISender sender) : LoginAccountServiceProto.LoginAccountServiceProtoBase
+    {
+        public override async Task<LoginAccountResponseProto> LoginAccountProto(LoginAccountRequestProto request, ServerCallContext context)
+        {
+            var mapRequest = request.Adapt<Request>();
+            var result = await sender.Send(new Command(mapRequest));
+            var mapResult = result.Adapt<LoginAccountResponseProto>();
+            return mapResult;
+        }
+    }
+}
 

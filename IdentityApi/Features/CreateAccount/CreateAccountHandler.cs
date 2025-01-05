@@ -71,4 +71,13 @@ namespace IdentityApi.Features.CreateAccount
             return true;
         }
     }
+    internal class CreateAccountService(ISender sender) : CreateAccountServiceProto.CreateAccountServiceProtoBase
+    {
+        public override async Task<CreateAccountResponseProto> CreateAccountProto(CreateAccountRequestProto request, ServerCallContext context)
+        {
+            var mapRequest = request.Adapt<Request>();
+            var result = await sender.Send(new Command(mapRequest));
+            return new CreateAccountResponseProto { Success = result };
+        }
+    }
 }

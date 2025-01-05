@@ -55,4 +55,15 @@ namespace IdentityApi.Features.GetNewToken
             return new Response(jwtToken, _refreshToken.Token);
         }
     }
+
+    internal class GetNewTokenService(ISender sender) : GetNewTokenServiceProto.GetNewTokenProtoBase
+    {
+        public override async Task<NewTokenResponseProto> GetNewTokenProto(NewTokenRequestProto request, ServerCallContext context)
+        {
+            var mapRequest = request.Adapt<Request>();
+            var result = await sender.Send(new Command(mapRequest));
+            var mapResult = result.Adapt<NewTokenResponseProto>();
+            return mapResult;
+        }
+    }
 }

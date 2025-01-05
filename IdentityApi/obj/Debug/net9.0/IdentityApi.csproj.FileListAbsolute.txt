@@ -1,0 +1,2 @@
+C:\Users\User\source\repos\FlightReservation\IdentityApi\obj\Debug\net9.0\IdentityApi.csproj.AssemblyReference.cache
+C:\Users\User\source\repos\FlightReservation\IdentityApi\obj\Debug\net9.0\IdentityApi.GeneratedMSBuildEditorConfig.editorconfig
